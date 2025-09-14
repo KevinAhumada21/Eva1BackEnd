@@ -1,0 +1,102 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %}
+  Nuevo Producto
+{% endblock %}
+
+{% block content %}
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-white mb-4 p-6 rounded-lg border border-gray-200">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Nuevo Producto</h1>
+      <p class="text-sm text-gray-600">Complete el siguiente formulario para agregar un nuevo producto al inventario (Los campos en rojo son obligatorios).</p>
+    </div>
+    <form method="post" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+      {% csrf_token %}
+
+      <!-- Campo Nombre -->
+      <div class="mb-6">
+        <label for="{{ form.nombre.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.nombre.label }}</label>
+        {{ form.nombre }}
+        {% if form.nombre.errors %}
+          <div class="mt-2 text-sm text-red-600">{{ form.nombre.errors }}</div>
+        {% endif %}
+      </div>
+
+      <!-- Campo Descripción -->
+      <div class="mb-6">
+        <label for="{{ form.descripcion.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.descripcion.label }}</label>
+        {{ form.descripcion }}
+        {% if form.descripcion.errors %}
+          <div class="mt-2 text-sm text-red-600">{{ form.descripcion.errors }}</div>
+        {% endif %}
+      </div>
+
+      <!-- Campo Precio -->
+      <div class="mb-6">
+        <label for="{{ form.precio.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.precio.label }}</label>
+        {{ form.precio }}
+        {% if form.precio.errors %}
+          <div class="mt-2 text-sm text-red-600">{{ form.precio.errors }}</div>
+        {% endif %}
+      </div>
+
+      <!-- Campo Cantidad -->
+      <div class="mb-6">
+        <label for="{{ form.cantidad.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.cantidad.label }}</label>
+        {{ form.cantidad }}
+        {% if form.cantidad.errors %}
+          <div class="mt-2 text-sm text-red-600">{{ form.cantidad.errors }}</div>
+        {% endif %}
+      </div>
+
+      <!-- Botones -->
+      <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
+        <a href="{% url 'lista_productos' %}" class="inline-flex items-center px-6 py-3 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Cancelar</a>
+        <button type="submit" class="hover:scale-105 transition-all ease-in inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Guardar Producto</button>
+      </div>
+    </form>
+  </div>
+
+  <style>
+    /* Estilos para los campos del formulario */
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      color: #374151;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    input::placeholder,
+    textarea::placeholder {
+      color: #9ca3af;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      ring: 2px solid #083deaff;
+      border-color: #084ceaff;
+      box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    input:invalid {
+      border-color: #fca5a5;
+    }
+    
+    input:invalid:focus {
+      ring: 2px solid #ef4444;
+      border-color: #ef4444;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+    }
+{% endblock %}

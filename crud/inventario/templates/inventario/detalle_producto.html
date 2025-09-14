@@ -1,0 +1,16 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %}
+  Detalle del Producto
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold mb-4">Detalle del Producto</h1>
+  <div class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-bold">{{ producto.nombre }}</h2>
+    <p class="mt-2">{{ producto.descripcion }}</p>
+    <p class="mt-2">Precio: ${{ producto.precio }}</p>
+    <p class="mt-2">Cantidad: {{ producto.cantidad }}</p>
+    <a href="{% url 'lista_productos' %}" class="hover:scale-105 transition-all ease-in mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Volver a la lista</a>
+  </div>
+{% endblock %}
