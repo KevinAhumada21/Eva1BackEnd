@@ -50,7 +50,7 @@ cd crud
 ```
 Ejecuta el servidor de desarrollo:
 ```bash
-python manage.py startapp
+python manage.py runserver
 ```
 
 Visita `http://127.0.0.1:8000/` en tu navegador. Deberías ver la página de bienvenida de Django, lo que indica que el servidor está funcionando correctamente.
