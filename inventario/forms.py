@@ -1,6 +1,14 @@
 from django import forms
-from .models import Producto
-class ProductoForm(forms.ModelForm):
+from .models import Contacto
+
+class ContactoForm(forms.ModelForm):
     class Meta:
-        model = Producto
-        fields = ['nombre', 'descripcion', 'precio', 'cantidad']
+        model = Contacto
+        fields = '__all__'
+
+    def clean_correo(self):
+        correo = self.cleaned_data['correo']
+        if '@' not in correo or not correo.endswith(('.com', '.cl')):
+            raise forms.ValidationError("Correo inválido. Debe tener formato correcto.")
+        return correo
+

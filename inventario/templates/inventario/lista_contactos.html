@@ -1,0 +1,48 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %}
+  Lista de Contactos
+{% endblock %}
+
+{% block content %}
+  <h2 class="text-3xl font-bold mb-6">Agenda de Contactos</h2>
+
+  <div class="mb-6 flex justify-between items-center">
+    <form method="get" class="flex gap-2 w-full max-w-md">
+      <input type="text" name="q" placeholder="Buscar por nombre o correo" value="{{ query }}" class="px-4 py-2 border rounded w-full">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buscar</button>
+    </form>
+    <a href="{% url 'nuevo_contacto' %}" class="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Nuevo Contacto</a>
+  </div>
+
+  <table class="w-full bg-white shadow-md rounded overflow-hidden">
+    <thead class="bg-gray-200 text-left">
+      <tr>
+        <th class="px-4 py-2">Nombre</th>
+        <th class="px-4 py-2">Teléfono</th>
+        <th class="px-4 py-2">Correo</th>
+        <th class="px-4 py-2">Dirección</th>
+        <th class="px-4 py-2">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contacto in contactos %}
+      <tr class="border-t hover:bg-gray-50">
+        <td class="px-4 py-2">{{ contacto.nombre }}</td>
+        <td class="px-4 py-2">{{ contacto.telefono }}</td>
+        <td class="px-4 py-2">{{ contacto.correo }}</td>
+        <td class="px-4 py-2">{{ contacto.direccion }}</td>
+        <td class="px-4 py-2 flex gap-2">
+          <a href="{% url 'detalle_contacto' contacto.id %}" class="text-blue-600 hover:underline">Ver</a>
+          <a href="{% url 'editar_contacto' contacto.id %}" class="text-yellow-600 hover:underline">Editar</a>
+          <a href="{% url 'eliminar_contacto' contacto.id %}" class="text-red-600 hover:underline">Eliminar</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" class="px-4 py-2 text-center text-gray-500">No se encontraron contactos.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

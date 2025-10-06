@@ -1,0 +1,21 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %}
+  Detalle de Contacto
+{% endblock %}
+
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Detalle de {{ contacto.nombre }}</h2>
+
+  <div class="bg-white shadow-md rounded p-6">
+    <p><strong>Teléfono:</strong> {{ contacto.telefono }}</p>
+    <p><strong>Correo:</strong> {{ contacto.correo }}</p>
+    <p><strong>Dirección:</strong> {{ contacto.direccion }}</p>
+  </div>
+
+  <div class="mt-4 flex gap-2">
+    <a href="{% url 'editar_contacto' contacto.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Editar</a>
+    <a href="{% url 'eliminar_contacto' contacto.id %}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Eliminar</a>
+    <a href="{% url 'lista_contactos' %}" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Volver</a>
+  </div>
+{% endblock %}

@@ -1,9 +1,10 @@
 from django.urls import path
-from . import views
+from .views import lista_contactos, nuevo_contacto, editar_contacto, eliminar_contacto, detalle_contacto
+
 urlpatterns = [
-    path("", views.lista_productos, name="lista_productos"),
-    path("producto/<int:id>/", views.detalle_producto, name="detalle_producto"),
-    path("producto/nuevo/", views.nuevo_producto, name="nuevo_producto"),
-    path("producto/editar/<int:id>/", views.editar_producto, name="editar_producto"),
-    path("producto/eliminar/<int:id>/", views.eliminar_producto, name="eliminar_producto"),
+    path('', lista_contactos, name='lista_contactos'),
+    path('nuevo/', nuevo_contacto, name='nuevo_contacto'),
+    path('editar/<int:id>/', editar_contacto, name='editar_contacto'),
+    path('eliminar/<int:id>/', eliminar_contacto, name='eliminar_contacto'),
+    path('detalle/<int:id>/', detalle_contacto, name='detalle_contacto'),
 ]
