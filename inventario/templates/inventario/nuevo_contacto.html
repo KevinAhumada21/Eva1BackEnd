@@ -14,7 +14,7 @@
     <form method="post" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
       {% csrf_token %}
 
-      <!-- Campo Nombre -->
+     
       <div class="mb-6">
         <label for="{{ form.nombre.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.nombre.label }}</label>
         {{ form.nombre }}
@@ -23,7 +23,7 @@
         {% endif %}
       </div>
 
-      <!-- Campo Teléfono -->
+
       <div class="mb-6">
         <label for="{{ form.telefono.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.telefono.label }}</label>
         {{ form.telefono }}
@@ -32,7 +32,7 @@
         {% endif %}
       </div>
 
-      <!-- Campo Correo -->
+     
       <div class="mb-6">
         <label for="{{ form.correo.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.correo.label }}</label>
         {{ form.correo }}
@@ -41,7 +41,7 @@
         {% endif %}
       </div>
 
-      <!-- Campo Dirección -->
+      
       <div class="mb-6">
         <label for="{{ form.direccion.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.direccion.label }}</label>
         {{ form.direccion }}
@@ -50,7 +50,7 @@
         {% endif %}
       </div>
 
-      <!-- Botones -->
+   
       <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
         <a href="{% url 'lista_contactos' %}" class="inline-flex items-center px-6 py-3 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Cancelar</a>
         <button type="submit" class="hover:scale-105 transition-all ease-in inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Guardar Contacto</button>

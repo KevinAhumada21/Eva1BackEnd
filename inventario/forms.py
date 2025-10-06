@@ -9,6 +9,6 @@ class ContactoForm(forms.ModelForm):
     def clean_correo(self):
         correo = self.cleaned_data['correo']
         if '@' not in correo or not correo.endswith(('.com', '.cl')):
-            raise forms.ValidationError("Correo inválido. Debe tener formato correcto.")
+            raise forms.ValidationError("Correo inválido, debe cumplir con el formato correcto.")
         return correo
 
