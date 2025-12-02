@@ -1,2 +1,8 @@
+asgiref
 Django
-gunicornpython-dotenv
+psycopg
+psycopg-binary
+python-dotenv
+sqlparse
+typing_extensions
+tzdata
