@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 class ContactoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'telefono', 'correo', 'direccion')
-    search_fields = ('nombre', 'correo')  
+    search_fields = ('nombre', 'correo') 
     list_filter = ('nombre',)
     list_per_page = 20
 
